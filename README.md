@@ -10,10 +10,10 @@ Using rbenv, install ruby version 2.7.2
 rbenv install 2.7.2
 ```
 
-Finally, install Rails
+Finally, install Rails version 5.2.8
 
 ```
-gem install rails
+gem install rails --version 5.2.8
 ```
 
 ## Check out source code
