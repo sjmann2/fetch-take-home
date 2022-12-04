@@ -17,7 +17,9 @@ ActiveRecord::Schema.define(version: 2022_12_01_153029) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "payer"
-    t.integer "points"
+    t.integer "points_initial"
+    t.integer "points_available"
     t.datetime "timestamp"
   end
+
 end
