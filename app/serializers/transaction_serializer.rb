@@ -6,7 +6,7 @@ class TransactionSerializer
           type: "transaction",
           attributes: {
               payer: transaction.payer,
-              points: transaction.points,
+              points: transaction.points_initial,
               timestamp: transaction.timestamp
           }
       }
