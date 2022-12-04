@@ -1,7 +1,29 @@
+
 # Local Setup Directions
+
+## Install Ruby and Rails
+Install rbenv using [these instructions](https://github.com/rbenv/rbenv#using-package-managers) 
+
+Using rbenv, install ruby version 2.7.2
+
+```
+rbenv install 2.7.2
+```
+
+Finally, install Rails
+
+```
+gem install rails
+```
+
+## Check out source code
 ```
 git clone git@github.com:sjmann2/fetch-take-home.git
 cd fetch-take-home
+```
+
+## Install source code and run project
+```
 bundle install
 rails db:{create,migrate}
 rails server
