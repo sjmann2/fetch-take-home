@@ -33,13 +33,13 @@ RSpec.describe 'The points request spec' do
     let!(:transaction_1) { Transaction.create!(payer: "DANNON", points: 300, timestamp: DateTime.new(2022,10,31,10)) }
     let!(:transaction_2) { Transaction.create!(payer: "UNILEVER", points: 200, timestamp: DateTime.new(2022,10,31,11)) }
     let!(:transaction_3) { Transaction.create!(payer: "DANNON", points: -200, timestamp: DateTime.new(2022,10,31,15)) }
-    let!(:transaction_4) { Transaction.create!(payer: "MILLER COORS", points: 5300, timestamp: DateTime.new(2022,11,01,14)) }
-    let!(:transaction_5) { Transaction.create!(payer: "DANNON", points: 1000, timestamp: DateTime.new(2022,11,02,14)) }
-    let!(:transaction_5) { Transaction.create!(payer: "DANNON", points: -100, timestamp: DateTime.new(2022,11,02,14)) }
-    let!(:transaction_5) { Transaction.create!(payer: "UNILEVER", points: -200, timestamp: DateTime.new(2022,11,02,14)) }
-    let!(:transaction_5) { Transaction.create!(payer: "MILLER COORS", points: -4700, timestamp: DateTime.new(2022,11,02,14)) }
+    let!(:transaction_4) { Transaction.create!(payer: "MILLER COORS", points: 10000, timestamp: DateTime.new(2022,11,01,14)) }
+    let!(:transaction_5) { Transaction.create!(payer: "DANNON", points: 1000, timestamp: DateTime.new(2022,12,01,14)) }
+    let!(:transaction_6) { Transaction.create!(payer: "DANNON", points: -100, timestamp: DateTime.new(2022,12,01,14)) }
+    let!(:transaction_7) { Transaction.create!(payer: "UNILEVER", points: -200, timestamp: DateTime.new(2022,12,01,14)) }
+    let!(:transaction_8) { Transaction.create!(payer: "MILLER COORS", points: -4700, timestamp: DateTime.new(2022,12,01,14)) }
 
-    xit 'returns a response of the payer and points balance' do
+    it 'returns a response of the payer and points balance' do
 
       get '/api/v1/points'
 
@@ -49,9 +49,9 @@ RSpec.describe 'The points request spec' do
       results = JSON.parse(response.body)
 
       expect(results).to eq({
-        "DANNON": 1000,
-        "UNILEVER": 0,
-        "MILLER COORS": 5300
+        "DANNON" => 1000,
+        "UNILEVER" => 0,
+        "MILLER COORS" => 5300
         })
     end
   end
