@@ -27,6 +27,29 @@ RSpec.describe 'The points request spec' do
           ]) 
       end
     end
+
+    describe 'if points redeemed are greater than points available' do
+      it 'returns a status 400 and an error message' do
+        body = JSON.generate(points: 50000)
+
+        patch '/api/v1/points', headers: headers, params: body
+        
+        expect(response).to have_http_status(400)
+        
+        results = JSON.parse(response.body, symbolize_names: true)
+
+        error_message = {
+                          "errors": [
+                              {
+                                  "status": "400",
+                                  "title": "Bad request",
+                                  "detail": "Insufficient balance to redeem this request"
+                              }
+                          ]
+                      }
+        expect(results).to eq(error_message)
+      end
+    end
   end
 
   describe 'GET /api/v1/points' do
