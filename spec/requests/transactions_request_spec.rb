@@ -40,10 +40,7 @@ RSpec.describe 'Create transactions request' do
                               {
                                   "status": "400",
                                   "title": "Bad request",
-                                  "detail": [
-                                      "Points can't be blank",
-                                      "Points is not a number"
-                                  ]
+                                  "detail": "Error saving transaction"
                               }
                           ]
                       }
