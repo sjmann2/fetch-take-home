@@ -3,9 +3,9 @@ class Api::V1::TransactionsController < ApplicationController
     transaction = Transaction.new(transaction_params)
     if transaction.save
       render json: TransactionSerializer.format_transaction(transaction), status: 201
+      # TODO Update this to not use serializer
     else
-      error = ErrorSerializer.new("400", "Bad request", transaction.errors.full_messages)
-      render json: error.serialized_message, status: 400
+      render_error("400", "Bad request", transaction.errors.full_messages)
     end
   end
 
