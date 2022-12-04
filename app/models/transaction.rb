@@ -23,6 +23,15 @@ class Transaction < ApplicationRecord
     response.map do |payer, points|
       {:payer => payer, :points => points}
     end
+    #possibly add column to transactions that is "points spent"--prevent re spending points
+  end
+
+  def self.sufficient_points?(points_redeemed)
+    points_redeemed < Transaction.sum(:points)
+  end
+
+
+  def self.get_points
+    Transaction.group(:payer).sum(:points)
   end
 end
-#possibly add column to transactions that is "points spent"
