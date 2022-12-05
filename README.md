@@ -1,37 +1,28 @@
 
 # Local Setup Directions
 
-## Install Ruby and Rails
-Install rbenv using [these instructions](https://github.com/rbenv/rbenv#using-package-managers) 
+## Install Docker
 
-Using rbenv, install ruby version 2.7.2
-
-```
-rbenv install 2.7.2
-```
-
-Finally, install Rails version 5.2.8
-
-```
-gem install rails --version 5.2.8
-```
+Install Docker on your system following [these instructions](https://docs.docker.com/get-docker/).
 
 ## Check out source code
+
 ```
 git clone git@github.com:sjmann2/fetch-take-home.git
 cd fetch-take-home
 ```
 
-## Install source code and run project
+## Build and run
+
 ```
-bundle install
-rails db:{create,migrate}
-rails server
+docker-compose build
+docker-compose up
 ```
+
 
 # Endpoints available
 ## Base URL 
-http://localhost3000/api/v1
+http://localhost:3000/api/v1
 
 ## Create transaction record
 POST '/transactions' requires parameters to be passed as raw JSON
