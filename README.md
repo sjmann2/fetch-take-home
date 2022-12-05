@@ -20,7 +20,7 @@ docker-compose up
 ```
 
 
-# Endpoints available
+# Endpoints Available
 ## Base URL 
 http://localhost:3000/api/v1
 
@@ -68,3 +68,16 @@ GET '/points'
   "MILLER COORS": 5300
 }
 ```
+
+# Reviewing Source Code 
+Rails generates a lot of boilerplate code on our behalf. Key source code is located
+in the following areas:
+
+API:
+* `app/controllers/`
+* `app/models/`
+* `app/serializers/`
+* `config/routes.rb`
+
+Tests:
+* `spec/`
